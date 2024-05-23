@@ -12,6 +12,10 @@
       <h1>{{ title | default : "My Blog" }}</h1>
     </header>
     <main>{{ content }}</main>
+
+    <script>
+      const accessToken = "{{ figmaAccessToken | safe }}";
+    </script>
     <script src="/js/script.js"></script>
   </body>
 </html>
