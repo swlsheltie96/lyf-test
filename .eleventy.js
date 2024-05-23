@@ -1,13 +1,13 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("images");
-  eleventyConfig.addPassthroughCopy("js");
-  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("src/images");
+  eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/css");
 
   return {
     dir: {
-      input: ".", // Input directory is now the root of your project
-      output: "../_site", // Output directory is outside the `src/` folder
+      input: ".",
+      output: "_site",
+      includes: "src/_includes",
     },
-    // Other configuration options
   };
 };
