@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const accessToken = document.getElementById("accessToken").getAttribute("data-access-token");
-
+  console.log("hello...");
   // Ensure accessToken is provided
   if (!accessToken) {
     console.error("Figma API access token not provided.");
