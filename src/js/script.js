@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
   const accessToken = process.env.FIGMA_ACCESS_TOKEN;
+
   // Ensure accessToken is provided
   if (!accessToken) {
     console.error("Figma API access token not provided.");
     return;
   }
+
   const fileKey = "OKO1bBHWqzfPhFtPPJSMpv";
+
   const backgroundElement = document.getElementById("background");
   // Authenticate with Figma API
   const headers = {
