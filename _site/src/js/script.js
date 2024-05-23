@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const accessToken = document.getElementById("accessToken").getAttribute("data-access-token");
+  // const accessToken = document.getElementById("accessToken").getAttribute("data-access-token");
+  const figmaAccessToken = process.env.FIGMA_ACCESS_TOKEN;
+
   console.log("hello...");
   // Ensure accessToken is provided
   if (!accessToken) {
