@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# Eleventy build output
+_site/
+dist/
+
+# Netlify functions build output
+netlify/functions/
+
+# System files
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+*.tmp
