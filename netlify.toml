@@ -1,5 +1,5 @@
 [build]
-  functions = "functions/" # Path to your functions directory
+  functions = "netlify/functions" # Path to your functions directory
   command = "eleventy"
 
 [dev]
