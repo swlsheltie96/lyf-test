@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const backgroundElement = document.getElementById("background");
 
   // Fetch data from the server-side function
-  fetch("/.netlify/functions/fetchfigmaimages")
+  fetch("/.netlify/functions/fetchFigmaImages")
     .then((response) => response.json())
     .then((data) => {
       const { layerNames, imagesData } = data;
