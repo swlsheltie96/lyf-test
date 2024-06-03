@@ -1,53 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // const accessToken = document.getElementById("accessToken").getAttribute("data-access-token");
-  const figmaAccessToken = process.env.FIGMA_ACCESS_TOKEN;
-
   console.log("hello...");
-  // Ensure accessToken is provided
-  if (!accessToken) {
-    console.error("Figma API access token not provided.");
-    return;
-  }
-
-  const fileKey = "OKO1bBHWqzfPhFtPPJSMpv";
-
   const backgroundElement = document.getElementById("background");
-  // Authenticate with Figma API
-  const headers = {
-    "X-Figma-Token": accessToken,
-  };
 
-  // Get File Information
-  fetch(`https://api.figma.com/v1/files/${fileKey}`, {
-    method: "GET",
-    headers: headers,
-  })
+  // Fetch data from the server-side function
+  fetch("/.netlify/functions/fetchfigmaimages")
     .then((response) => response.json())
-    .then((fileInfo) => {
-      const pages = fileInfo.document.children;
-      const nodes = pages[1].children[0].children;
-      console.log(nodes);
-      // Extract layer names
-      const layerNames = nodes.map((node) => node.name);
-      console.log(layerNames);
-      // Local image filenames (ensure they match your layer names)
-      const localImages = layerNames.map((name) => `${name}.png`);
-      console.log(layerNames, localImages);
+    .then((data) => {
+      const { layerNames, imagesData } = data;
+
+      console.log(layerNames, imagesData);
 
       // Generate <img> tags for matched images
-      localImages.forEach((image, i) => {
-        console.log(i, nodes[i]);
+      imagesData.forEach((imageData) => {
         const img = document.createElement("img");
-        img.src = `/images/${image}`;
-        img.alt = image;
+        img.src = `/src/images/${imageData.alt}`;
+        img.alt = imageData.alt;
         img.className = "canvas-image";
         backgroundElement.appendChild(img);
-        img.style.left = nodes[i].absoluteBoundingBox.x / 10 + "%";
-        img.style.top = nodes[i].absoluteBoundingBox.y / 10 + "%";
-        img.style.width = nodes[i].absoluteBoundingBox.width / 10 + "%";
+        img.style.left = imageData.style.left;
+        img.style.top = imageData.style.top;
+        img.style.width = imageData.style.width;
       });
     })
     .catch((error) => {
-      console.error("Error fetching node information:", error);
+      console.error("Error fetching image data:", error);
     });
 });

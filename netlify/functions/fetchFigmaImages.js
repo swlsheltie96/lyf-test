@@ -1,4 +1,9 @@
-const fetch = require("node-fetch");
+let fetch;
+try {
+  fetch = require("node-fetch");
+} catch (err) {
+  fetch = require("node-fetch").default;
+}
 
 exports.handler = async function (event, context) {
   console.log("hello...");

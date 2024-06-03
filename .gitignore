@@ -20,3 +20,5 @@ netlify/functions/
 # Temporary files
 tmp/
 *.tmp
+# Local Netlify folder
+.netlify

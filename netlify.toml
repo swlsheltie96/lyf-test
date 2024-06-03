@@ -1,0 +1,29 @@
+[build]
+  functions = "functions/" # Path to your functions directory
+  command = "eleventy"
+
+[dev]
+  # The command to start your local development server.
+  command = "eleventy --serve"
+
+  # The port Netlify Dev should listen on.
+  port = 8888
+
+  # Functions directory for Netlify Dev.
+  functions = "netlify/functions"
+
+  # Directory to serve functions from during local development.
+  publish = "_site"
+
+  # Indicates whether to run functions locally during development.
+  # If set to true, functions will be served by Netlify Dev.
+  # If set to false, functions will be skipped during local development.
+  functions_include = true
+
+  # Indicates whether to run the build command before starting the local server.
+  # If set to true, Netlify Dev will run the build command before starting.
+  # If set to false, Netlify Dev will skip the build step.
+  autoLaunch = true
+
+[context.production.environment]
+  LOG_LEVEL = "info" # Set the logging level to "info"
