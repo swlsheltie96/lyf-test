@@ -1,5 +1,5 @@
 ---
-title: post title 2
+title: Solo Shows
 ---
 
 # Title of Your Document

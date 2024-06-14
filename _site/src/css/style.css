@@ -1,12 +1,38 @@
+* {
+  font-family: helvetica, arial;
+  font-weight: normal;
+}
 .background-container {
   display: block;
   width: 100vw;
   height: 100vw;
   border: solid red;
   box-sizing: border-box;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .background-container .canvas-image {
   position: absolute;
+}
+
+.main-body-container {
+  border: solid black;
+  margin: auto;
+  z-index: 1;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-top: 50px;
+}
+.main-title {
+  text-transform: uppercase;
+}
+.all-works-nav {
+  display: flex;
+}
+@media (min-width: 600px) {
+  .main-body-container {
+    max-width: 600px;
+  }
 }

@@ -1,12 +1,24 @@
 ---
+title: Li Yi-Fan Studio
+email: liyifan.studio@gmail.com
 layout: layout.html
 ---
 
-helloooo content!!! {% for work in collections.work %}
-<h2>{{work.data.title}}</h2>
-{% endfor %}
+<div class="main-body-container">
+  <h1 class="main-title">{{ email }}</h1>
+  <div class="all-works-nav">
+    {% for category in collections.resume %}
+    <p>{{ category.data.title }}</p>
+    {% endfor %}
+  </div>
 
-<div id="background" class="background-container"></div>
-<h1>{% fuck %}</h1>
+  <div class="all-works-container">
+    {% for work in collections.portfolio %} {%
+    include "portfolio.html" %} {% endfor %}
+  </div>
+</div>
 
-hello
+<div
+  id="background"
+  class="background-container"
+></div>

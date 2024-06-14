@@ -4,10 +4,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/css");
-  console.log("FIMSDLKVJSDLKFJLSDKFJLSDKJF");
-  eleventyConfig.addShortcode("fuck", function () {
-    return "Hello from myFunction!";
-  });
+
+  eleventyConfig.addCollection(
+    "portfolio",
+    function (collection) {
+      return collection.getFilteredByGlob(
+        "portfolio/*.md"
+      );
+    }
+  );
+
   return {
     pathPrefix: "/.netlify/functions",
     dir: {
